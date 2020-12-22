@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/mnt/c/Users/dogaucak/CLionProjects/untitled1/Commands.cpp
+main.h
+/mnt/c/Users/dogaucak/CLionProjects/untitled1/main.h
+
+/mnt/c/Users/dogaucak/CLionProjects/untitled1/main.h
+cstdio
+-
+cstring
+-
+sys/socket.h
+-
+sys/stat.h
+-
+sys/sendfile.h
+-
+fcntl.h
+-
+unistd.h
+-
+cstdlib
+-
+pthread.h
+-
+arpa/inet.h
+-
+
