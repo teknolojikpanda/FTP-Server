@@ -42,7 +42,7 @@ int CreateSocket(){
         if ( pthread_create(&connection_handler, NULL, ConnectionHandler, (void*) new_sock) != 0 )
             perror("Thread creation");
         else
-            pthread_detach(connection_handler);  /* disassociate from parent */
+            pthread_detach(connection_handler);
     }
 }
 
@@ -53,7 +53,7 @@ void *ConnectionHandler(void *socket_desc)
     pthread_t command_listener;
     char	server_response[BUFSIZ];
 
-    sprintf(server_response,"\n==220 Welcome to FTP Server== \r\n\n");
+    sprintf(server_response,"220 Welcome to FTP Server\r\n");
     send(socket, server_response, strlen(server_response), 0);
 
     // Command Listener Thread Initialization
