@@ -15,13 +15,15 @@
 #include <cstdlib>
 #include <pthread.h>
 #include <arpa/inet.h>
+#include <dirent.h>
 
-#define BUFSIZ 2000
+#define BUFF_SIZE 2000
 #define SERVER_PORT 4467
+#define ROOT_PATH "/home/dogaucak/test_dir/"
 
 int CreateSocket();
 void CommandListener(int socket);
-void Commands(int socket, char command[BUFSIZ]);
+void Commands(int socket, char command[BUFF_SIZE]);
 void* ConnectionHandler(void* socket_desc);
 
 #endif //UNTITLED1_MAIN_H
