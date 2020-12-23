@@ -24,6 +24,6 @@
 int CreateSocket();
 void CommandListener(int socket);
 void Commands(int socket, char command[BUFF_SIZE]);
-void* ConnectionHandler(void* socket_desc);
+void ConnectionHandler(int socket_desc);
 
 #endif //UNTITLED1_MAIN_H

@@ -12,14 +12,14 @@ void CommandListener(int socket){
     char recv_buffer[BUFF_SIZE];
     char new_recv_buffer[BUFF_SIZE];
     do{
+        memset(recv_buffer, 0, sizeof(recv_buffer));
+        memset(new_recv_buffer, 0, sizeof(recv_buffer));
+
         rcnt = recv(socket, recv_buffer, BUFF_SIZE, 0);
         if (rcnt > 0) {
             strncat(new_recv_buffer,recv_buffer,strlen(recv_buffer)-1);
             printf("Full Command : %s\n", new_recv_buffer);
             Commands(socket, new_recv_buffer);
-
-            memset(recv_buffer, 0, sizeof(recv_buffer));
-            memset(new_recv_buffer, 0, sizeof(recv_buffer));
         }
         else if (rcnt == 0)
             printf("Connection closed by client\n");
@@ -95,31 +95,36 @@ void Commands(int socket, char command[BUFF_SIZE]){
                 closedir(d);
             }
         } else if (after_login == false){
-            printf("%s\n","FAIL");
+            sprintf(send_buffer,"530 Not logged in.\r\n");
+            send(socket, send_buffer, strlen(send_buffer), 0);
         }
     } else if (strcmp(token,"CWD") == 0) {
         if (after_login == true){
 
         } else if (after_login == false){
-
+            sprintf(send_buffer,"530 Not logged in.\r\n");
+            send(socket, send_buffer, strlen(send_buffer), 0);
         }
     } else if (strcmp(token,"GET") == 0) {
         if (after_login == true){
 
         } else if (after_login == false){
-
+            sprintf(send_buffer,"530 Not logged in.\r\n");
+            send(socket, send_buffer, strlen(send_buffer), 0);
         }
     } else if (strcmp(token,"PUT") == 0) {
         if (after_login == true){
 
         } else if (after_login == false){
-
+            sprintf(send_buffer,"530 Not logged in.\r\n");
+            send(socket, send_buffer, strlen(send_buffer), 0);
         }
     } else if (strcmp(token,"DEL") == 0) {
         if (after_login == true){
 
         } else if (after_login == false){
-
+            sprintf(send_buffer,"530 Not logged in.\r\n");
+            send(socket, send_buffer, strlen(send_buffer), 0);
         }
     } else if (strcmp(token,"QUIT") == 0) {
         after_login = false;
