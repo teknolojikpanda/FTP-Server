@@ -25,13 +25,15 @@ using namespace std;
 
 #define BUFF_SIZE 2000
 #define SERVER_PORT 4467
-#define ROOT_PATH "/home/dogaucak/test_dir/"
 
 int CreateSocket();
 void CommandListener(int socket);
 void Commands(int socket, char command[BUFF_SIZE]);
 void ConnectionHandler(int socket_desc);
-int CheckPassword(char username[2000], char password[2000]);
-int CheckUser(char *name);
+int CheckPassword(string username, string password);
+int CheckUser(string name);
+string GetDefDir(string name);
+int CheckDir(string dir, string username);
+string exec(string cmd, string username);
 
 #endif //UNTITLED1_MAIN_H

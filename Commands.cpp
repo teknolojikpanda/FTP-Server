@@ -6,6 +6,9 @@
 
 bool after_login = false;
 bool user_required = false;
+string username;
+string password;
+string dir;
 
 void CommandListener(int socket){
     int rcnt;
@@ -34,14 +37,12 @@ void CommandListener(int socket){
 void Commands(int socket, char command[BUFF_SIZE]){
 
     char* token = strtok(command, " ");
-    char *username;
-    char *password;
     char send_buffer[BUFF_SIZE];
 
     if (strcmp(token,"USER") == 0){
         token = strtok(nullptr, " ");
         username = token;
-        if (username != nullptr && CheckUser(username) == 0){
+        if (username.c_str() != nullptr && CheckUser(username) == 0){
             //True
             sprintf(send_buffer,"331 Password required \r\n");
             send(socket, send_buffer, strlen(send_buffer), 0);
@@ -55,9 +56,10 @@ void Commands(int socket, char command[BUFF_SIZE]){
         if (user_required == true){
             token = strtok(nullptr, " ");
             password = token;
-            if (password != nullptr && CheckPassword("dogaucak",password) == 0){
+            if (password.c_str() != nullptr && CheckPassword(username,password) == 0){
                 //True
                 after_login = true;
+                dir = GetDefDir(username);
                 sprintf(send_buffer,"230 Public login successful \r\n");
                 send(socket, send_buffer, strlen(send_buffer), 0);
             } else{
@@ -71,35 +73,30 @@ void Commands(int socket, char command[BUFF_SIZE]){
         }
     } else if (strcmp(token,"LIST") == 0) {
         if (after_login == true){
-            sprintf(send_buffer,"257 \"/home/dogaucak/test_dir/\" is your current directory.\r\n");
+            sprintf(send_buffer,"257 \"%s\" is your current directory.\r\n", dir.c_str());
             send(socket, send_buffer, strlen(send_buffer), 0);
 
-            DIR *d;
-            struct dirent *dir;
-            struct stat buf;
-            char root_path[BUFF_SIZE] = ROOT_PATH;
-            char full_path[BUFF_SIZE];
-            d = opendir(root_path);
-            if (d) {
-                while ((dir = readdir(d)) != nullptr && strcmp(dir->d_name,"..") != 0) {
-                    strcpy(full_path,root_path);
-                    strcat(full_path,dir->d_name);
-                    sprintf(send_buffer,"%s", full_path);
-                    send(socket, send_buffer, strlen(send_buffer), 0);
-                    stat(full_path,&buf);
-                    sprintf(send_buffer," %lo\r\n", buf.st_size);
-                    send(socket, send_buffer, strlen(send_buffer), 0);
-                }
-                send(socket, ".\r\n", strlen(".\r\n"), 0);
-                closedir(d);
-            }
+            string command = "cd "+dir+" && du -sh *";
+            string result = exec(command,username);
+            send(socket, result.c_str(), strlen(result.c_str()), 0);
+            send(socket, ".\n", strlen(".\n"), 0);
+
         } else if (after_login == false){
             sprintf(send_buffer,"530 Not logged in.\r\n");
             send(socket, send_buffer, strlen(send_buffer), 0);
         }
     } else if (strcmp(token,"CWD") == 0) {
         if (after_login == true){
-
+            token = strtok(nullptr, " ");
+            dir = token;
+            int result = CheckDir(dir,username);
+            if (dir.c_str() != nullptr && result == 0){
+                sprintf(send_buffer,"257 \"%s\" is your current directory.\r\n", dir.c_str());
+                send(socket, send_buffer, strlen(send_buffer), 0);
+            } else {
+                sprintf(send_buffer,"550 Directory not found.\r\n");
+                send(socket, send_buffer, strlen(send_buffer), 0);
+            }
         } else if (after_login == false){
             sprintf(send_buffer,"530 Not logged in.\r\n");
             send(socket, send_buffer, strlen(send_buffer), 0);

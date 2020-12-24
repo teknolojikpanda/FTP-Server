@@ -6,7 +6,19 @@
 
 #IncludeRegexTransform: 
 
+/mnt/c/Users/dogaucak/CLionProjects/untitled1/Commands.cpp
+main.h
+/mnt/c/Users/dogaucak/CLionProjects/untitled1/main.h
+
+/mnt/c/Users/dogaucak/CLionProjects/untitled1/Login.cpp
+main.h
+/mnt/c/Users/dogaucak/CLionProjects/untitled1/main.h
+
 /mnt/c/Users/dogaucak/CLionProjects/untitled1/Script.h
+
+/mnt/c/Users/dogaucak/CLionProjects/untitled1/Socket.cpp
+main.h
+/mnt/c/Users/dogaucak/CLionProjects/untitled1/main.h
 
 /mnt/c/Users/dogaucak/CLionProjects/untitled1/main.cpp
 main.h

@@ -48,7 +48,6 @@ int CreateSocket(){
             exit(0);
         }
     }
-    printf("USER LIMIT REACHED!");
 }
 
 void ConnectionHandler(int socket_desc)
