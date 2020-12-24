@@ -24,7 +24,7 @@ void CommandListener(int socket){
         else if (rcnt == 0)
             printf("Connection closed by client\n");
         else  {
-            printf("Connection has problem\n");
+            printf("Connection Terminated!\n");
             break;
         }
     } while (rcnt > 0);
@@ -41,7 +41,7 @@ void Commands(int socket, char command[BUFF_SIZE]){
     if (strcmp(token,"USER") == 0){
         token = strtok(nullptr, " ");
         username = token;
-        if (username != nullptr && strcmp(username,"test") == 0){
+        if (username != nullptr && CheckUser(username) == 0){
             //True
             sprintf(send_buffer,"331 Password required \r\n");
             send(socket, send_buffer, strlen(send_buffer), 0);
@@ -55,7 +55,7 @@ void Commands(int socket, char command[BUFF_SIZE]){
         if (user_required == true){
             token = strtok(nullptr, " ");
             password = token;
-            if (password != nullptr && strcmp(password,"test") == 0){
+            if (password != nullptr && CheckPassword("dogaucak",password) == 0){
                 //True
                 after_login = true;
                 sprintf(send_buffer,"230 Public login successful \r\n");
@@ -71,7 +71,6 @@ void Commands(int socket, char command[BUFF_SIZE]){
         }
     } else if (strcmp(token,"LIST") == 0) {
         if (after_login == true){
-
             sprintf(send_buffer,"257 \"/home/dogaucak/test_dir/\" is your current directory.\r\n");
             send(socket, send_buffer, strlen(send_buffer), 0);
 
@@ -91,7 +90,7 @@ void Commands(int socket, char command[BUFF_SIZE]){
                     sprintf(send_buffer," %lo\r\n", buf.st_size);
                     send(socket, send_buffer, strlen(send_buffer), 0);
                 }
-                send(socket, ".", 1, 0);
+                send(socket, ".\r\n", strlen(".\r\n"), 0);
                 closedir(d);
             }
         } else if (after_login == false){

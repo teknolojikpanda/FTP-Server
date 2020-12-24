@@ -1,5 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/untitled1.dir/Commands.cpp.o"
+  "CMakeFiles/untitled1.dir/Login.cpp.o"
   "CMakeFiles/untitled1.dir/Socket.cpp.o"
   "CMakeFiles/untitled1.dir/main.cpp.o"
   "untitled1"

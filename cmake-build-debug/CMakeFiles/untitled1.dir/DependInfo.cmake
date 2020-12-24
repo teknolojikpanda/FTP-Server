@@ -5,6 +5,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
   "/mnt/c/Users/dogaucak/CLionProjects/untitled1/Commands.cpp" "/mnt/c/Users/dogaucak/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/untitled1.dir/Commands.cpp.o"
+  "/mnt/c/Users/dogaucak/CLionProjects/untitled1/Login.cpp" "/mnt/c/Users/dogaucak/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/untitled1.dir/Login.cpp.o"
   "/mnt/c/Users/dogaucak/CLionProjects/untitled1/Socket.cpp" "/mnt/c/Users/dogaucak/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/untitled1.dir/Socket.cpp.o"
   "/mnt/c/Users/dogaucak/CLionProjects/untitled1/main.cpp" "/mnt/c/Users/dogaucak/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/untitled1.dir/main.cpp.o"
   )

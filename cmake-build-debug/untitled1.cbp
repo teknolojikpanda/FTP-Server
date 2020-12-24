@@ -85,6 +85,12 @@
 		<Unit filename="/mnt/c/Users/dogaucak/CLionProjects/untitled1/Commands.cpp">
 			<Option target="untitled1"/>
 		</Unit>
+		<Unit filename="/mnt/c/Users/dogaucak/CLionProjects/untitled1/Login.cpp">
+			<Option target="untitled1"/>
+		</Unit>
+		<Unit filename="/mnt/c/Users/dogaucak/CLionProjects/untitled1/Script.h">
+			<Option target="untitled1"/>
+		</Unit>
 		<Unit filename="/mnt/c/Users/dogaucak/CLionProjects/untitled1/Socket.cpp">
 			<Option target="untitled1"/>
 		</Unit>

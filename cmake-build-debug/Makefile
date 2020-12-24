@@ -150,6 +150,33 @@ Commands.cpp.s:
 	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/Commands.cpp.s
 .PHONY : Commands.cpp.s
 
+Login.o: Login.cpp.o
+
+.PHONY : Login.o
+
+# target to build an object file
+Login.cpp.o:
+	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/Login.cpp.o
+.PHONY : Login.cpp.o
+
+Login.i: Login.cpp.i
+
+.PHONY : Login.i
+
+# target to preprocess a source file
+Login.cpp.i:
+	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/Login.cpp.i
+.PHONY : Login.cpp.i
+
+Login.s: Login.cpp.s
+
+.PHONY : Login.s
+
+# target to generate assembly for a file
+Login.cpp.s:
+	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/Login.cpp.s
+.PHONY : Login.cpp.s
+
 Socket.o: Socket.cpp.o
 
 .PHONY : Socket.o
@@ -216,6 +243,9 @@ help:
 	@echo "... Commands.o"
 	@echo "... Commands.i"
 	@echo "... Commands.s"
+	@echo "... Login.o"
+	@echo "... Login.i"
+	@echo "... Login.s"
 	@echo "... Socket.o"
 	@echo "... Socket.i"
 	@echo "... Socket.s"
