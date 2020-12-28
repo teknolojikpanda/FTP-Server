@@ -48,10 +48,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/dogaucak/CLionProjects/untitled1
+CMAKE_SOURCE_DIR = /mnt/c/Users/dogaucak/CLionProjects/FTP_Server
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/dogaucak/CLionProjects/untitled1/cmake-build-debug
+CMAKE_BINARY_DIR = /mnt/c/Users/dogaucak/CLionProjects/FTP_Server/cmake-build-debug
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -80,9 +80,9 @@ edit_cache/fast: edit_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/dogaucak/CLionProjects/untitled1/cmake-build-debug/CMakeFiles /mnt/c/Users/dogaucak/CLionProjects/untitled1/cmake-build-debug/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/dogaucak/CLionProjects/FTP_Server/cmake-build-debug/CMakeFiles /mnt/c/Users/dogaucak/CLionProjects/FTP_Server/cmake-build-debug/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/dogaucak/CLionProjects/untitled1/cmake-build-debug/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/dogaucak/CLionProjects/FTP_Server/cmake-build-debug/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -111,17 +111,17 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named untitled1
+# Target rules for targets named FTP_Server
 
 # Build rule for target.
-untitled1: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 untitled1
-.PHONY : untitled1
+FTP_Server: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 FTP_Server
+.PHONY : FTP_Server
 
 # fast build rule for target.
-untitled1/fast:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/build
-.PHONY : untitled1/fast
+FTP_Server/fast:
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/build
+.PHONY : FTP_Server/fast
 
 Commands.o: Commands.cpp.o
 
@@ -129,7 +129,7 @@ Commands.o: Commands.cpp.o
 
 # target to build an object file
 Commands.cpp.o:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/Commands.cpp.o
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/Commands.cpp.o
 .PHONY : Commands.cpp.o
 
 Commands.i: Commands.cpp.i
@@ -138,7 +138,7 @@ Commands.i: Commands.cpp.i
 
 # target to preprocess a source file
 Commands.cpp.i:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/Commands.cpp.i
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/Commands.cpp.i
 .PHONY : Commands.cpp.i
 
 Commands.s: Commands.cpp.s
@@ -147,8 +147,62 @@ Commands.s: Commands.cpp.s
 
 # target to generate assembly for a file
 Commands.cpp.s:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/Commands.cpp.s
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/Commands.cpp.s
 .PHONY : Commands.cpp.s
+
+Functions.o: Functions.cpp.o
+
+.PHONY : Functions.o
+
+# target to build an object file
+Functions.cpp.o:
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/Functions.cpp.o
+.PHONY : Functions.cpp.o
+
+Functions.i: Functions.cpp.i
+
+.PHONY : Functions.i
+
+# target to preprocess a source file
+Functions.cpp.i:
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/Functions.cpp.i
+.PHONY : Functions.cpp.i
+
+Functions.s: Functions.cpp.s
+
+.PHONY : Functions.s
+
+# target to generate assembly for a file
+Functions.cpp.s:
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/Functions.cpp.s
+.PHONY : Functions.cpp.s
+
+INI_Parser.o: INI_Parser.cpp.o
+
+.PHONY : INI_Parser.o
+
+# target to build an object file
+INI_Parser.cpp.o:
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/INI_Parser.cpp.o
+.PHONY : INI_Parser.cpp.o
+
+INI_Parser.i: INI_Parser.cpp.i
+
+.PHONY : INI_Parser.i
+
+# target to preprocess a source file
+INI_Parser.cpp.i:
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/INI_Parser.cpp.i
+.PHONY : INI_Parser.cpp.i
+
+INI_Parser.s: INI_Parser.cpp.s
+
+.PHONY : INI_Parser.s
+
+# target to generate assembly for a file
+INI_Parser.cpp.s:
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/INI_Parser.cpp.s
+.PHONY : INI_Parser.cpp.s
 
 Login.o: Login.cpp.o
 
@@ -156,7 +210,7 @@ Login.o: Login.cpp.o
 
 # target to build an object file
 Login.cpp.o:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/Login.cpp.o
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/Login.cpp.o
 .PHONY : Login.cpp.o
 
 Login.i: Login.cpp.i
@@ -165,7 +219,7 @@ Login.i: Login.cpp.i
 
 # target to preprocess a source file
 Login.cpp.i:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/Login.cpp.i
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/Login.cpp.i
 .PHONY : Login.cpp.i
 
 Login.s: Login.cpp.s
@@ -174,7 +228,7 @@ Login.s: Login.cpp.s
 
 # target to generate assembly for a file
 Login.cpp.s:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/Login.cpp.s
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/Login.cpp.s
 .PHONY : Login.cpp.s
 
 Socket.o: Socket.cpp.o
@@ -183,7 +237,7 @@ Socket.o: Socket.cpp.o
 
 # target to build an object file
 Socket.cpp.o:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/Socket.cpp.o
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/Socket.cpp.o
 .PHONY : Socket.cpp.o
 
 Socket.i: Socket.cpp.i
@@ -192,7 +246,7 @@ Socket.i: Socket.cpp.i
 
 # target to preprocess a source file
 Socket.cpp.i:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/Socket.cpp.i
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/Socket.cpp.i
 .PHONY : Socket.cpp.i
 
 Socket.s: Socket.cpp.s
@@ -201,7 +255,7 @@ Socket.s: Socket.cpp.s
 
 # target to generate assembly for a file
 Socket.cpp.s:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/Socket.cpp.s
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/Socket.cpp.s
 .PHONY : Socket.cpp.s
 
 main.o: main.cpp.o
@@ -210,7 +264,7 @@ main.o: main.cpp.o
 
 # target to build an object file
 main.cpp.o:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/main.cpp.o
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/main.cpp.o
 .PHONY : main.cpp.o
 
 main.i: main.cpp.i
@@ -219,7 +273,7 @@ main.i: main.cpp.i
 
 # target to preprocess a source file
 main.cpp.i:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/main.cpp.i
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/main.cpp.i
 .PHONY : main.cpp.i
 
 main.s: main.cpp.s
@@ -228,7 +282,7 @@ main.s: main.cpp.s
 
 # target to generate assembly for a file
 main.cpp.s:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/main.cpp.s
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/main.cpp.s
 .PHONY : main.cpp.s
 
 # Help Target
@@ -239,10 +293,16 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
-	@echo "... untitled1"
+	@echo "... FTP_Server"
 	@echo "... Commands.o"
 	@echo "... Commands.i"
 	@echo "... Commands.s"
+	@echo "... Functions.o"
+	@echo "... Functions.i"
+	@echo "... Functions.s"
+	@echo "... INI_Parser.o"
+	@echo "... INI_Parser.i"
+	@echo "... INI_Parser.s"
 	@echo "... Login.o"
 	@echo "... Login.i"
 	@echo "... Login.s"

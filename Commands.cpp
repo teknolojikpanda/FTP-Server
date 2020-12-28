@@ -38,11 +38,18 @@ void Commands(int socket, char command[BUFF_SIZE]){
 
     char* token = strtok(command, " ");
     char send_buffer[BUFF_SIZE];
+    int USER_status;
+    int PASS_status;
 
     if (strcmp(token,"USER") == 0){
-        token = strtok(nullptr, " ");
+        token = strtok(NULL, " ");
         username = token;
-        if (username.c_str() != nullptr && CheckUser(username) == 0){
+        if (CheckSUDO() == 0){
+            USER_status = CheckSysUser(username);
+        } else {
+            USER_status = CheckINIUser(username);
+        }
+        if (username.c_str() != NULL && USER_status == 0){
             //True
             sprintf(send_buffer,"331 Password required \r\n");
             send(socket, send_buffer, strlen(send_buffer), 0);
@@ -54,12 +61,21 @@ void Commands(int socket, char command[BUFF_SIZE]){
         }
     } else if (strcmp(token,"PASS") == 0) {
         if (user_required == true){
-            token = strtok(nullptr, " ");
+            token = strtok(NULL, " ");
             password = token;
-            if (password.c_str() != nullptr && CheckPassword(username,password) == 0){
+            if (CheckSUDO() == 0){
+                PASS_status = CheckSysPassword(username,password);
+            } else {
+                PASS_status = CheckINIPassword(password);
+            }
+            if (password.c_str() != NULL && PASS_status == 0){
                 //True
                 after_login = true;
-                dir = GetDefDir(username);
+                if (CheckSUDO() == 0){
+                    dir = GetDefDir(username);
+                } else {
+                    dir = GetINIDir();
+                }
                 sprintf(send_buffer,"230 Public login successful \r\n");
                 send(socket, send_buffer, strlen(send_buffer), 0);
             } else{
@@ -87,10 +103,10 @@ void Commands(int socket, char command[BUFF_SIZE]){
         }
     } else if (strcmp(token,"CWD") == 0) {
         if (after_login == true){
-            token = strtok(nullptr, " ");
+            token = strtok(NULL, " ");
             dir = token;
             int result = CheckDir(dir,username);
-            if (dir.c_str() != nullptr && result == 0){
+            if (dir.c_str() != NULL && result == 0){
                 sprintf(send_buffer,"257 \"%s\" is your current directory.\r\n", dir.c_str());
                 send(socket, send_buffer, strlen(send_buffer), 0);
             } else {

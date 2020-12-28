@@ -44,16 +44,16 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /mnt/c/Users/dogaucak/CLionProjects/untitled1
+CMAKE_SOURCE_DIR = /mnt/c/Users/dogaucak/CLionProjects/FTP_Server
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /mnt/c/Users/dogaucak/CLionProjects/untitled1/cmake-build-debug
+CMAKE_BINARY_DIR = /mnt/c/Users/dogaucak/CLionProjects/FTP_Server/cmake-build-debug
 
 #=============================================================================
 # Directory level rules for the build root directory
 
 # The main recursive "all" target.
-all: CMakeFiles/untitled1.dir/all
+all: CMakeFiles/FTP_Server.dir/all
 
 .PHONY : all
 
@@ -63,36 +63,36 @@ preinstall:
 .PHONY : preinstall
 
 # The main recursive "clean" target.
-clean: CMakeFiles/untitled1.dir/clean
+clean: CMakeFiles/FTP_Server.dir/clean
 
 .PHONY : clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/untitled1.dir
+# Target rules for target CMakeFiles/FTP_Server.dir
 
 # All Build rule for target.
-CMakeFiles/untitled1.dir/all:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/depend
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/dogaucak/CLionProjects/untitled1/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5 "Built target untitled1"
-.PHONY : CMakeFiles/untitled1.dir/all
+CMakeFiles/FTP_Server.dir/all:
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/depend
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/mnt/c/Users/dogaucak/CLionProjects/FTP_Server/cmake-build-debug/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target FTP_Server"
+.PHONY : CMakeFiles/FTP_Server.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/untitled1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/dogaucak/CLionProjects/untitled1/cmake-build-debug/CMakeFiles 5
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/untitled1.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/dogaucak/CLionProjects/untitled1/cmake-build-debug/CMakeFiles 0
-.PHONY : CMakeFiles/untitled1.dir/rule
+CMakeFiles/FTP_Server.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/dogaucak/CLionProjects/FTP_Server/cmake-build-debug/CMakeFiles 7
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/FTP_Server.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /mnt/c/Users/dogaucak/CLionProjects/FTP_Server/cmake-build-debug/CMakeFiles 0
+.PHONY : CMakeFiles/FTP_Server.dir/rule
 
 # Convenience name for target.
-untitled1: CMakeFiles/untitled1.dir/rule
+FTP_Server: CMakeFiles/FTP_Server.dir/rule
 
-.PHONY : untitled1
+.PHONY : FTP_Server
 
 # clean rule for target.
-CMakeFiles/untitled1.dir/clean:
-	$(MAKE) -f CMakeFiles/untitled1.dir/build.make CMakeFiles/untitled1.dir/clean
-.PHONY : CMakeFiles/untitled1.dir/clean
+CMakeFiles/FTP_Server.dir/clean:
+	$(MAKE) -f CMakeFiles/FTP_Server.dir/build.make CMakeFiles/FTP_Server.dir/clean
+.PHONY : CMakeFiles/FTP_Server.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

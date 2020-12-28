@@ -8,7 +8,10 @@ void PANIC(char* msg);
 #define PANIC(msg)  { perror(msg); exit(-1); }
 
 int CreateSocket(){
-    int sd,optval,client,n;
+    int sd,optval,client;
+
+    config cfg("config.ini");
+    int PORT = stoi(cfg.get_value("config", "port"));
 
     struct sockaddr_in addr;
     pid_t pid;
@@ -17,7 +20,7 @@ int CreateSocket(){
         PANIC("Socket");
 
     addr.sin_family = AF_INET;
-    addr.sin_port = htons(SERVER_PORT);
+    addr.sin_port = htons(PORT);
     addr.sin_addr.s_addr = INADDR_ANY;
 
     // set SO_REUSEADDR on a socket to true (1):

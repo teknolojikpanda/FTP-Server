@@ -2,8 +2,8 @@
 // Created by dogaucak on 12/24/2020.
 //
 
-#ifndef UNTITLED1_SCRIPT_H
-#define UNTITLED1_SCRIPT_H
+#ifndef FTP_SERVER_SCRIPT_H
+#define FTP_SERVER_SCRIPT_H
 
 #define PASS_CHECK_SCRIPT "\
 #!/bin/bash \n\
@@ -20,4 +20,4 @@ else \n\
 fi \n\
 "
 
-#endif //UNTITLED1_SCRIPT_H
+#endif //FTP_SERVER_SCRIPT_H
