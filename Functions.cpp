@@ -48,7 +48,7 @@ void generate_config() {
                      "[config]\n"
                      "username = test\n"
                      "password = test\n"
-                     "pwd = /home/dogaucak/test_dir\n"
+                     "pwd = "+GetDefDir(GetCurrentUser())+"\n"
                      "port = 4467";
         }
     } else {

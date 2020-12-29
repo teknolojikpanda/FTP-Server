@@ -11,7 +11,9 @@ int CreateSocket(){
     int sd,optval,client;
 
     config cfg("config.ini");
-    int PORT = stoi(cfg.get_value("config", "port"));
+    stringstream intValue(cfg.get_value("config", "port"));
+    int PORT = 0;
+    intValue >> PORT;
 
     struct sockaddr_in addr;
     pid_t pid;
@@ -23,7 +25,6 @@ int CreateSocket(){
     addr.sin_port = htons(PORT);
     addr.sin_addr.s_addr = INADDR_ANY;
 
-    // set SO_REUSEADDR on a socket to true (1):
     optval = 1;
     setsockopt(sd, SOL_SOCKET, SO_REUSEADDR, &optval, sizeof optval);
 
@@ -34,7 +35,7 @@ int CreateSocket(){
 
     printf("System ready on port %d\n",ntohs(addr.sin_port));
 
-    while(1) {  // main accept() loop
+    while(1) {
         int addr_size = sizeof(addr);
         if ((client = accept(sd, (struct sockaddr*)&addr, reinterpret_cast<socklen_t *>(&addr_size))) == -1) {
             perror("Accept Problem!");
@@ -43,7 +44,6 @@ int CreateSocket(){
 
         printf("Server: got connection from %s\n", inet_ntoa(addr.sin_addr));
 
-        /* If fork create Child, take control over child and close on server side */
         if ((pid=fork()) == 0) {
             close(sd);
             ConnectionHandler(client);

@@ -9,7 +9,8 @@
 #include <string>
 #include <unordered_map>
 #include <list>
-
+#include <algorithm>
+#include <stdexcept>
 
 // trim leading white-spaces
 static std::string& ltrim(std::string& s) {

@@ -6,9 +6,7 @@
 
 bool after_login = false;
 bool user_required = false;
-string username;
-string password;
-string dir;
+string get_val,put_val,put_filename,username,password,dir,del_filename;
 
 void CommandListener(int socket){
     int rcnt;
@@ -119,21 +117,70 @@ void Commands(int socket, char command[BUFF_SIZE]){
         }
     } else if (strcmp(token,"GET") == 0) {
         if (after_login == true){
-
+            token = strtok(NULL, " ");
+            get_val = token;
+            if (get_val.c_str() != NULL){
+                string command = "cat " + dir + "/" + get_val;
+                string result = exec(command, username);
+                if (result == "cat: "+ dir + "/" + get_val +": No such file or directory\n"){
+                    send(socket, "550 ERROR File not found.\r\n", strlen("550 ERROR File not found.\r\n"), 0);
+                } else if (result == "cat: "+ dir + "/" + get_val +": Permission denied\n"){
+                    send(socket, "550 ERROR No access.\r\n", strlen("550 ERROR No access.\r\n"), 0);
+                } else {
+                    send(socket, result.c_str(), strlen(result.c_str()), 0);
+                    send(socket, ".", strlen("."), 0);
+                }
+            } else {
+                send(socket, "501 Syntax error in parameters or arguments.\r\n", strlen("501 Syntax error in parameters or arguments.\r\n"), 0);
+            }
         } else if (after_login == false){
             sprintf(send_buffer,"530 Not logged in.\r\n");
             send(socket, send_buffer, strlen(send_buffer), 0);
         }
     } else if (strcmp(token,"PUT") == 0) {
         if (after_login == true){
+            token = strtok(NULL, " ");
+            put_filename = token;
+            token = strtok(NULL, " ");
+            put_val = token;
 
+            if (put_filename.c_str() != NULL && put_val.c_str() != NULL){
+                string command = "echo \""+put_val+"\" > "+dir+"/"+put_filename;
+                string result = exec(command,username);
+
+                if (result == "sh: 1: cannot create "+dir + "/" + put_filename+": Permission denied"){
+                    send(socket, "550 ERROR No access.\r\n", strlen("550 ERROR No access.\r\n"), 0);
+                } else {
+                    send(socket, "250 Requested file action okay, completed.\r\n", strlen("250 Requested file action okay, completed.\r\n"), 0);
+                }
+            } else {
+                send(socket, "501 Syntax error in parameters or arguments.\r\n", strlen("501 Syntax error in parameters or arguments.\r\n"), 0);
+            }
         } else if (after_login == false){
             sprintf(send_buffer,"530 Not logged in.\r\n");
             send(socket, send_buffer, strlen(send_buffer), 0);
         }
     } else if (strcmp(token,"DEL") == 0) {
         if (after_login == true){
-
+            token = strtok(NULL, " ");
+            del_filename = token;
+            if (del_filename.c_str() != NULL){
+                string command = "rm "+dir+"/"+del_filename;
+                string result = exec(command,username);
+                if (result == "rm: cannot remove '"+dir+"/"+del_filename+"': No such file or directory\n"){
+                    send(socket, "550 ERROR File not found.\r\n", strlen("550 ERROR File not found.\r\n"), 0);
+                } else if (result == "rm: cannot remove '"+dir+"/"+del_filename+"': Permission denied\n"){
+                    send(socket, "550 ERROR No access.\r\n", strlen("550 ERROR No access.\r\n"), 0);
+                } else if (result == "rm: cannot remove '"+dir+"/"+del_filename+"': Is a directory\n"){
+                    string command = "rm -r "+dir+"/"+del_filename;
+                    exec(command,username);
+                    send(socket, "250 Requested file action okay, completed.\r\n", strlen("250 Requested file action okay, completed.\r\n"), 0);
+                } else {
+                    send(socket, "250 Requested file action okay, completed.\r\n", strlen("250 Requested file action okay, completed.\r\n"), 0);
+                }
+            } else {
+                send(socket, "501 Syntax error in parameters or arguments.\r\n", strlen("501 Syntax error in parameters or arguments.\r\n"), 0);
+            }
         } else if (after_login == false){
             sprintf(send_buffer,"530 Not logged in.\r\n");
             send(socket, send_buffer, strlen(send_buffer), 0);

@@ -16,8 +16,6 @@ int CheckSysUser(string name) {
 string GetCurrentUser(){
     struct passwd *pw;
     uid_t uid;
-    int c;
-
     uid = geteuid ();
     pw = getpwuid (uid);
     return pw->pw_name;

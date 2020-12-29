@@ -15,6 +15,7 @@
 #include <unistd.h>
 #include <cstdlib>
 #include <fstream>
+#include <sstream>
 
 #include <sys/socket.h>
 #include <sys/stat.h>
@@ -44,4 +45,4 @@ int CheckDir(string dir, string username);
 string exec(string cmd, string username);
 void generate_config();
 
-#endif //FTP_SERVER_MAIN_H
+#endif
