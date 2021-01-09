@@ -7,7 +7,8 @@
 void PANIC(char* msg);
 #define PANIC(msg)  { perror(msg); exit(-1); }
 
-int CreateSocket(){
+int CreateSocket()
+{
     int sd,optval,client;
 
     config cfg("config.ini");
@@ -33,18 +34,21 @@ int CreateSocket(){
     if ( listen(sd, SOMAXCONN) != 0 )
         PANIC("Listen");
 
-    printf("System ready on port %d\n",ntohs(addr.sin_port));
+    cout << "System ready on port " << ntohs(addr.sin_port) << endl;
 
-    while(1) {
+    while(1) 
+    {
         int addr_size = sizeof(addr);
-        if ((client = accept(sd, (struct sockaddr*)&addr, reinterpret_cast<socklen_t *>(&addr_size))) == -1) {
+        if ((client = accept(sd, (struct sockaddr*)&addr, reinterpret_cast<socklen_t *>(&addr_size))) == -1) 
+        {
             perror("Accept Problem!");
             continue;
         }
 
-        printf("Server: got connection from %s\n", inet_ntoa(addr.sin_addr));
+        cout << "Server: got connection from " << inet_ntoa(addr.sin_addr) << endl;
 
-        if ((pid=fork()) == 0) {
+        if ((pid=fork()) == 0) 
+        {
             close(sd);
             ConnectionHandler(client);
             close(client);
@@ -64,7 +68,8 @@ void ConnectionHandler(int socket_desc)
     send(socket, server_response, strlen(server_response), 0);
 
     // Command Listener Thread Initialization
-    if ((pid = fork()) == 0){
+    if ((pid = fork()) == 0)
+    {
         CommandListener(socket);
     }
 }

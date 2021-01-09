@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/untitled1.dir/main.cpp.o CMakeFiles/untitled1.dir/Socket.cpp.o CMakeFiles/untitled1.dir/Commands.cpp.o CMakeFiles/untitled1.dir/Login.cpp.o  -o untitled1 

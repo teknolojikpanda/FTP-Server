@@ -4,11 +4,15 @@
 
 #include "main.h"
 
-int CheckSysUser(string name) {
+int CheckSysUser(string name) 
+{
     struct passwd *p;
-    if ((p = getpwnam(name.c_str())) == NULL) {
+    if ((p = getpwnam(name.c_str())) == NULL) 
+    {
         return 1;
-    } else if (strcmp(p->pw_name,name.c_str()) == 0){
+    } 
+    else if (strcmp(p->pw_name,name.c_str()) == 0)
+    {
         return 0;
     }
 }
@@ -35,18 +39,24 @@ int CheckSysPassword(string username, string password){
 
 int CheckINIUser(string username){
     config cfg("config.ini");
-    if (strcmp(username.c_str(),cfg.get_value("config", "username").c_str()) == 0){
+    if (strcmp(username.c_str(),cfg.get_value("config", "username").c_str()) == 0)
+    {
         return 0;
-    } else {
+    } 
+    else 
+    {
         return 1;
     }
 }
 
 int CheckINIPassword(string password){
     config cfg("config.ini");
-    if (strcmp(password.c_str(),cfg.get_value("config", "password").c_str()) == 0){
+    if (strcmp(password.c_str(),cfg.get_value("config", "password").c_str()) == 0)
+    {
         return 0;
-    } else {
+    } 
+    else 
+    {
         return 1;
     }
 }

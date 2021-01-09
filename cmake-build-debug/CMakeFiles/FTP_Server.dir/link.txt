@@ -1,1 +1,0 @@
-/usr/bin/c++  -g   CMakeFiles/FTP_Server.dir/main.cpp.o CMakeFiles/FTP_Server.dir/Socket.cpp.o CMakeFiles/FTP_Server.dir/Commands.cpp.o CMakeFiles/FTP_Server.dir/Login.cpp.o CMakeFiles/FTP_Server.dir/INI_Parser.cpp.o CMakeFiles/FTP_Server.dir/Functions.cpp.o  -o FTP_Server 

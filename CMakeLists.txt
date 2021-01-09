@@ -1,6 +1,11 @@
-cmake_minimum_required(VERSION 3.16)
-project(FTP_Server)
+cmake_minimum_required(VERSION 3.0.0)
+project(FTP_Server VERSION 0.1.0)
 
-set(CMAKE_CXX_STANDARD 11)
+include(CTest)
+enable_testing()
 
-add_executable(FTP_Server main.cpp main.h Socket.cpp Commands.cpp Login.cpp Script.h INI_Parser.cpp INI_Parser.h Functions.cpp)
+add_executable(FTP_Server main.cpp main.h Commands.cpp Functions.cpp INI_Parser.cpp INI_Parser.h Login.cpp Script.h Socket.cpp)
+
+set(CPACK_PROJECT_NAME ${PROJECT_NAME})
+set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
+include(CPack)

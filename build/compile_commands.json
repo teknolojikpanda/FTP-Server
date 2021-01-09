@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/home/dogaucak/FTP_Server/build",
+  "command": "/bin/g++-9    -O3 -DNDEBUG   -o CMakeFiles/FTP_Server.dir/main.cpp.o -c /home/dogaucak/FTP_Server/main.cpp",
+  "file": "/home/dogaucak/FTP_Server/main.cpp"
+},
+{
+  "directory": "/home/dogaucak/FTP_Server/build",
+  "command": "/bin/g++-9    -O3 -DNDEBUG   -o CMakeFiles/FTP_Server.dir/Commands.cpp.o -c /home/dogaucak/FTP_Server/Commands.cpp",
+  "file": "/home/dogaucak/FTP_Server/Commands.cpp"
+},
+{
+  "directory": "/home/dogaucak/FTP_Server/build",
+  "command": "/bin/g++-9    -O3 -DNDEBUG   -o CMakeFiles/FTP_Server.dir/Functions.cpp.o -c /home/dogaucak/FTP_Server/Functions.cpp",
+  "file": "/home/dogaucak/FTP_Server/Functions.cpp"
+},
+{
+  "directory": "/home/dogaucak/FTP_Server/build",
+  "command": "/bin/g++-9    -O3 -DNDEBUG   -o CMakeFiles/FTP_Server.dir/INI_Parser.cpp.o -c /home/dogaucak/FTP_Server/INI_Parser.cpp",
+  "file": "/home/dogaucak/FTP_Server/INI_Parser.cpp"
+},
+{
+  "directory": "/home/dogaucak/FTP_Server/build",
+  "command": "/bin/g++-9    -O3 -DNDEBUG   -o CMakeFiles/FTP_Server.dir/Login.cpp.o -c /home/dogaucak/FTP_Server/Login.cpp",
+  "file": "/home/dogaucak/FTP_Server/Login.cpp"
+},
+{
+  "directory": "/home/dogaucak/FTP_Server/build",
+  "command": "/bin/g++-9    -O3 -DNDEBUG   -o CMakeFiles/FTP_Server.dir/Socket.cpp.o -c /home/dogaucak/FTP_Server/Socket.cpp",
+  "file": "/home/dogaucak/FTP_Server/Socket.cpp"
+}
+]
