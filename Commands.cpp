@@ -151,13 +151,15 @@ void Commands(int socket, char command[BUFF_SIZE])
     } 
     else if (strcmp(token,"CWD") == 0) 
     {
+        string tmp = "";
         if (after_login == true)
         {
             token = strtok(NULL, " ");
-            dir = token;
-            int result = CheckDir(dir,username);
-            if (dir.c_str() != NULL && result == 0)
+            tmp = token;
+            int result = CheckDir(tmp,username);
+            if (tmp.c_str() != NULL && result == 0)
             {
+                dir = tmp;
                 sprintf(send_buffer,"257 \"%s\" is your current directory.\r\n", dir.c_str());
                 send(socket, send_buffer, strlen(send_buffer), 0);
             } 
@@ -172,7 +174,7 @@ void Commands(int socket, char command[BUFF_SIZE])
             sprintf(send_buffer,"530 Not logged in.\r\n");
             send(socket, send_buffer, strlen(send_buffer), 0);
         }
-    } 
+    }  
     else if (strcmp(token,"GET") == 0) 
     {
         if (after_login == true)
