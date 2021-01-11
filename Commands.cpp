@@ -174,7 +174,7 @@ void Commands(int socket, char command[BUFF_SIZE])
             sprintf(send_buffer,"530 Not logged in.\r\n");
             send(socket, send_buffer, strlen(send_buffer), 0);
         }
-    }  
+    } 
     else if (strcmp(token,"GET") == 0) 
     {
         if (after_login == true)
@@ -216,8 +216,9 @@ void Commands(int socket, char command[BUFF_SIZE])
         {
             token = strtok(NULL, " ");
             put_filename = token;
-            token = strtok(NULL, " ");
+            token = strtok(NULL, "\"");
             put_val = token;
+            cout << put_val << endl;
 
             if (put_filename.c_str() != NULL && put_val.c_str() != NULL)
             {
@@ -289,7 +290,7 @@ void Commands(int socket, char command[BUFF_SIZE])
         after_login = false;
         send(socket,"Goodbye!",strlen("Goodbye!"),0);
         close(socket);
-    } 
+    }
     else 
     {
         sprintf(send_buffer,"502 Invalid command.\r\n");
